@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 
+
+
 <html lang="en">
 
 <head>
-  <title>TinyApp</title>
 </head>
 
 <body>
-  <p>
-    <h2>Update URL
-      <p>
-        <%= shortURL%> →
-        <br>
-        <%= longURL%> →
-      </p>
-      <a href="/urls/<%= shortURL %>"><button>New</button></a>
+  <% include partials/_header %>
+  <br>
+  <a href='/url'>Create new tinyURL</a>
 
+  <p>
+    <p>
+      <h3>TinyURL for →
+        <%= longURL%>
+      </h3>
+      <h3>
+        <%= shortURL%>
+      </h3>
+    </p>
 </body>
 
 </html>
