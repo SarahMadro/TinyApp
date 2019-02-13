@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-
-
 <html lang="en">
 
 <head>
@@ -15,23 +13,28 @@
 </head>
 
 <body style="font-size:20px; padding:50px;">
-<% include partials/_header %>
+  <% include partials/_header %>
   <h3>My URLs</h3>
 
-<a href='/urls/new'>Create new tinyURL</a>
+  <a href='/urls/new'>Create new tinyURL</a>
 
-<br></br>
+  <br></br>
 
   <ul>
-    <% for(let key in urls) { %>
-    <li>
-      <%=`Short:  ${key}` %> <!-- shortURL -->
-      <%=`Long:  ${urls[key]}` %> <!-- longURL -->
+    <% for( let key in urls){%>
+<li>
+  <%=`Short:  ${key}` %>
+
+  <%=`Long:  ${urls[key]}` %>
+
+<form action=<%=`/urls/${key}/delete`%> method="POST">
+<button>Delete</button>
+      </form>
     </li>
-  <% }; %>
+
+    <%};%>
   </ul>
 
-  href='#'
 </body>
 
 </html>
