@@ -12,6 +12,7 @@ app.set("view engine", "ejs");
 function generateRandomString() {
   let r = Math.random().toString(36).substring(7);
   console.log(r);
+  return r;
 };
 
 var urlDatabase = {
@@ -51,10 +52,11 @@ app.get("/urls/:shortURL", (req, res) => {
 app.get('/urls', (req, res) => {
   let templateVars = { urls: urlDatabase};
   res.render('urls_index', templateVars);
-  console.log('*****', templateVars);
 });
 
 app.post("/urls", (req, res) => {
-  console.log(req.body); // Log the POST request body to the console
-  res.send("Ok"); // Respond with 'Ok' (we will replace this)
+  let randomStr = generateRandomString(7);
+  urlDatabase[randomStr] = req.body.longURL;
+  console.log(req.body);
+  res.send("Ok");
 });
