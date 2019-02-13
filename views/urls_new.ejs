@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-
-
-
 <html lang="en">
 
 <head>
@@ -11,27 +8,22 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
-  <title>TinyApp</title>
+
+  <title>New URL - TinyApp Example</title>
 </head>
 
 <body style="font-size:20px; padding:50px;">
-<% include partials/_header %>
-  <h3>My URLs</h3>
 
-<a href='/urls/new'>Create new tinyURL</a>
+  <% include partials/_header %>
 
-<br></br>
-
-  <ul>
-    <% for(let key in urls) { %>
-    <li>
-      <%=`Short:  ${key}` %> <!-- shortURL -->
-      <%=`Long:  ${urls[key]}` %> <!-- longURL -->
-    </li>
-  <% }; %>
-  </ul>
-
-  href='#'
+  <h3>Create TinyURL</h3>
+  <form class="form-inline" action="/urls" method="POST">
+    <div class="form-group mb-2">
+      <label for="longURL">Enter a URL:</label>
+      <input class="form-control" type="text" name="longURL" placeholder="http://" style="width: 300px; margin: 1em">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
 </body>
 
 </html>
