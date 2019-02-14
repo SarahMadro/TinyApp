@@ -22,14 +22,16 @@
 
   <ul>
     <% for( let key in urls){%>
-<li>
-  <%=`Short:  ${key}` %>
+    <li>
+      <%=`Short:  ${key}` %>
 
-  <%=`Long:  ${urls[key]}` %>
+      <%=`Long:  ${urls[key]}` %>
 
-<form action=<%=`/urls/${key}/delete`%> method="POST">
-<button>Delete</button>
-      </form>
+      <a href=<%=`/urls/${key}`%>>Edit</a>
+
+        <form action=<%=`/urls/${key}/delete`%> method="POST">
+          <button>Delete</button>
+        </form>
     </li>
 
     <%};%>

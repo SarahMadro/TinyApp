@@ -77,3 +77,7 @@ app.post('/urls/:shortURL', (req, res) => {
   urlDatabase[shortURL] = req.body.longURL;
   res.redirect("/urls/");
 });
+
+// app.get('/urls', (req, res) => {
+
+// });
