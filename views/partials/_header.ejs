@@ -1,1 +1,23 @@
-<header><h1>TinyApp</h1></header>
+<header>
+  <h1>TinyApp</h1>
+</header>
+
+<% if(username) { %>
+  <form action='/logout' method='POST'>
+    <label for='logout'></label>
+
+    <h2>Logout</h2></label>
+<button type="logout" class="btn btn-primary">Logout</button> </form>
+  <br>
+  <br>
+<% } else { %>
+  <form action="/login" method="POST" style="margin:100px;">
+    <label for="username">
+      <h2>Username:</h2>
+    </label>
+    <input id="username" type="text" name="username" placeholder="http://" style="width: 300px">
+    <br>
+    <br>
+    <button type="submit" value="Submit">Submit</button>
+  </form>
+<% } %>
