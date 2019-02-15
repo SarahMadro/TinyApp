@@ -1,23 +1,55 @@
-<% if(user) { %>
-<h2>
-  <%=`${user.email}`%>
-</h2>
+let templateVars = {
+userID: req.cookies.userID,
+shortURL: Object.keys(usersUrls).length < 1 ? "" : req.params.shortURL, longURL: Object.keys(usersUrls).length < 1 ? ""
+  : urlDatabase[req.params.shortURL].longURL, user: userID
 
-<form action='/logout' method='POST'>
-  <label for='logout'></label>
-  <h2>Logout</h2></label>
-  <button type="logout" class="btn btn-primary">Logout</button>
-</form>
-<br>
-<br>
-<% } else { %>
-<h3>Create Account</h3>
-<form action="/register" method="POST" style="margin:150px;">
-  <label for="longURL">Email:</label>
-  <input id="longURL" type="email" name="email" placeholder="http://" style="width: 300px">
+<!DOCTYPE html>
 
-  <label for="password">Password:</label>
-  <input id="password" type="password" name="password" placeholder="http://" style="width: 300px">
-  <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-</form>
-<% } %>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+  <title>TinyApp</title>
+</head>
+
+<body style="font-size:20px; padding:50px;">
+  <% include partials/_header %>
+  <h3>My URLs</h3>
+
+  <a href='/urls/new'>Create new tinyURL</a>
+
+  <br></br>
+
+  <ul>
+    <% if (user) {%>
+    <% for(let key in urls){%>
+    <li>
+      <a href=<%=`Short: ${key}`%>></a>
+
+      <a href=<%=`Long: ${urls[key].longURL}`%>></a>
+
+      <a href=<%=`/urls/${key}`%>>Edit </a> <form action=<%=`/urls/${key}/delete`%> method="POST">
+        <button>Delete</button>
+        </form>
+    </li>
+    <% } else { %>
+
+    <li>
+      <a href=<%=`Short: ${key}`%>></a>
+
+      <a href=<%=`Long: ${urls[key].longURL}`%>></a>
+
+    </li>
+
+    <% } %>
+    <%};%>
+  </ul>
+
+</body>
+
+</html>

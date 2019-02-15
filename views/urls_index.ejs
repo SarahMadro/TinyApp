@@ -21,11 +21,11 @@
   <br></br>
 
   <ul>
-    <% for( let key in urls){%>
+    <% for(let key in urls){%>
     <li>
       <%=`Short:  ${key}` %>
 
-      <%=`Long:  ${urls[key]}` %>
+      <%=`Long:  ${urls[key].longURL}` %>
 
       <a href=<%=`/urls/${key}`%>>Edit</a>
 
