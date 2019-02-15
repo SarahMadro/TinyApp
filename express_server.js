@@ -3,6 +3,7 @@ var app = express();
 var PORT = 8080; // default port 8080
 var cookieParser = require('cookie-parser')
 app.use(cookieParser())
+const bcrypt = require('bcrypt');
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({
@@ -49,6 +50,18 @@ function generateRandomString() {
 
     return obj;
   }
+
+    //check/compare for the hashpassword function
+    function matchPassword(password, email) {
+      for (let key in users) {
+        if (users[key].email === email) {
+          if (bcrypt.compareSync(password, users[key].password)) {
+            return users[key];
+          }
+        }
+      }
+      return false;
+    }
 
 const urlDatabase = {
   b6UTxQ: { longURL: "https://www.tsn.ca", userID: "user2RandomID" },
@@ -180,13 +193,17 @@ app.post('/urls/:shortURL', (req, res) => {
 
 app.post('/login', (req, res) => {
   let user = isEmailTaken(req.body.email);
-  if (!user) {
-    res.status(400).send("<p>Not a Registered Username</p><a href='/login'>Go Back</a>");
-  } else if (req.body.password !== user.password) {
-    res.status(400).send("<p>Incorrect Password</p><a href = '/login'>Go Back</a>");
-  } else {
-    res.cookie('user_id',user.id);
+  let userFound = matchPassword(req.body.email, req.body.passowrd);
+
+  if (userFound) {
+    res.cookie('user_id', user.id);
     res.redirect('/urls');
+  } else {
+    if (req.body.password !== user.password) {
+      res.status(400).send("<p>Incorrect Password</p><a href = '/login'>Go Back</a>");
+    } else {
+      res.status(400).send("<p>Not a Registered Username</p><a href='/login'>Go Back</a>");
+    }
   }
 });
 
@@ -212,10 +229,11 @@ app.post('/register', (req, res) => {
     res.status(400).send("<p>'Sorry, this username is taken, please try again with another.'</p><a href='/login'>Go Back</a>");
 
   } else {
+    let hashedPassword = bcrypt.hashSync(password, 10);
       users[newId] = {
         id: newId,
         email: email,
-        password: password
+        password: hashedPassword
       }
       res.cookie('user_id', newId);
       res.cookie('email', email);
