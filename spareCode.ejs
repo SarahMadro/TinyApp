@@ -1,0 +1,23 @@
+<% if(user) { %>
+<h2>
+  <%=`${user.email}`%>
+</h2>
+
+<form action='/logout' method='POST'>
+  <label for='logout'></label>
+  <h2>Logout</h2></label>
+  <button type="logout" class="btn btn-primary">Logout</button>
+</form>
+<br>
+<br>
+<% } else { %>
+<h3>Create Account</h3>
+<form action="/register" method="POST" style="margin:150px;">
+  <label for="longURL">Email:</label>
+  <input id="longURL" type="email" name="email" placeholder="http://" style="width: 300px">
+
+  <label for="password">Password:</label>
+  <input id="password" type="password" name="password" placeholder="http://" style="width: 300px">
+  <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+</form>
+<% } %>

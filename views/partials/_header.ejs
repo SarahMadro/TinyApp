@@ -2,32 +2,20 @@
   <h1>TinyApp</h1>
 </header>
 
-<% if(username) { %>
+
+<% if(user) { %>
+<h2>
+  <%=`${user.email}`%>
+</h2>
+
 <form action='/logout' method='POST'>
   <label for='logout'></label>
-
   <h2>Logout</h2></label>
   <button type="logout" class="btn btn-primary">Logout</button>
 </form>
 <br>
 <br>
 <% } else { %>
-<form action="/login" method="POST" style="margin:100px;">
-  <label for="username">
-    <h2>Username:</h2>
-  </label>
-  <input id="username" type="text" name="username" placeholder="http://" style="width: 300px">
-<br>
-<br>
-  <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-</form>
+<a href='/register'>Register</a>
+<a href='/login'>Login</a>
 <% } %>
-
-<form action="/register" method="POST" style="margin:150px;">
-  <label for="longURL">Email:</label>
-  <input id="longURL" type="email" name="email" placeholder="http://" style="width: 300px">
-
-  <label for="password">Password:</label>
-  <input id="password" type="password" name="password" placeholder="http://" style="width: 300px">
-  <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-</form>

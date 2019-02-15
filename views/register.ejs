@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+  <% include partials/_header %>
+
+<body>
+<form action="/register" method="POST" style="margin:150px;">
+  <label for="longURL">Email:</label>
+  <input id="longURL" type="email" name="email" placeholder="http://" style="width: 300px">
+
+  <label for="password">Password:</label>
+  <input id="password" type="password" name="password" placeholder="http://" style="width: 300px">
+  <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+</form>
+</body>
