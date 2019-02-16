@@ -5,18 +5,35 @@
 <html lang="en">
 
 <head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+  <style>
+    body {
+    padding: 1em
+  }
+</style>
 </head>
 
 <body>
   <% include partials/_header %>
+  <br>
+  <br>
+<h3>Register</h3>
+  <br>
 
-<body>
-<form action="/register" method="POST" style="margin:150px;">
-  <label for="longURL">Email:</label>
-  <input id="longURL" type="email" name="email" placeholder="http://" style="width: 300px">
+  <div>
 
-  <label for="password">Password:</label>
-  <input id="password" type="password" name="password" placeholder="http://" style="width: 300px">
-  <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-</form>
+    <body>
+      <form action="/register" method="POST">
+        <label for="longURL">Email:</label>
+        <input class="form-control col-6" id="longURL" type="email" name="email">
+
+        <label for="password">Password:</label>
+        <input class="form-control col-6" id="password" type="password" name="password">
+        <br>
+
+        <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+      </form>
+  </div>
 </body>

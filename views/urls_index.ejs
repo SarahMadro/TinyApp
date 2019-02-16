@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
   <title>TinyApp</title>
+<style>
+  body {
+    padding: 1em
+  }
+</style>
 </head>
 
 <body style="font-size:20px; padding:50px;">
@@ -23,14 +28,16 @@
   <ul>
     <% for(let key in urls){%>
     <li>
-      <%=`Short:  ${key}` %>
+      Short:
+      <a href=<%=key%>>
+        <%=` ${key}` %></a>&nbsp &nbsp
+      Long:
+      <a href=<%=urls[key].longURL%>>
+        <%=` ${urls[key].longURL}` %></a>&nbsp &nbsp
 
-      <%=`Long:  ${urls[key].longURL}` %>
-
-      <a href=<%=`/urls/${key}`%>>Edit</a>
-
+        <a class="btn btn-primary" href="<%=`/urls/${key}`%>"> Edit </a>
         <form action=<%=`/urls/${key}/delete`%> method="POST">
-          <button>Delete</button>
+        <button type="delete" class="btn btn-primary">Delete</button>
         </form>
     </li>
 
