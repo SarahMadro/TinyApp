@@ -5,11 +5,11 @@
 <html lang="en">
 
 <head>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-  crossorigin="anonymous">
-<style>
-  body {
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+  <style>
+    body {
     padding: 1em
   }
 </style>
@@ -34,7 +34,7 @@
       </h3>
       <form action="/urls/<%= shortURL %>" method="POST" style="margin:150px;">
         <label for="longURL">Enter a URL:</label>
-        <input class="form-control col-6" id="longURL" type="text" name="longURL" placeholder="http://">
+        <input class="form-control col-6" id="longURL" type="text" name="longURL" value="http://">
         <button type="submit" value="submit">Submit</button>
       </form>
     </p>

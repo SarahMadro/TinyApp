@@ -2,11 +2,9 @@
   <h1>TinyApp</h1>
 </header>
 
-
-<% if(user) { %>
 <h2>
+<% if(user) { %>
   <%=`${user.email}`%>
-</h2>
 
 <form action='/logout' method='POST'>
   <label for='logout'></label>
@@ -19,3 +17,4 @@
 <a href='/register'>Register</a>
 <a href='/login'>Login</a>
 <% } %>
+</h2>

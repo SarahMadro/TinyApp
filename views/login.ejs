@@ -5,13 +5,13 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-  crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
 
   <style>
     body {
@@ -21,21 +21,22 @@
 </head>
 
 <body>
-<% include partials/_header %>
+  <% include partials/_header %>
 
-<h3>Login</h3>
-<form  action="/login" method="POST">
-<div><label for="longURL">Email:</label>
-<input class="form-control col-6" id="longURL" type="email" name="email">
-</div>
+  <h3>Login</h3>
+  <form action="/login" method="POST">
+    <div><label for="longURL">Email:</label>
+      <input class="form-control col-6" id="longURL" type="email" name="email">
+    </div>
 
-<div>
-<label for="password">Password:</label>
-<input class="form-control col-6" id="password" type="password" name="password">
-</div>
-  <br>
-<div>
-<button type="submit" class="btn btn-primary">Submit</button>
-</div>
-</form>
+    <div>
+      <label for="password">Password:</label>
+      <input class="form-control col-6" id="password" type="password" name="password">
+    </div>
+    <br>
+    <div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
 </body>
+</html>

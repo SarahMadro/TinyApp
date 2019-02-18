@@ -8,8 +8,8 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
-<style>
-  body {
+  <style>
+    body {
     padding: 1em
   }
 </style>
@@ -19,16 +19,16 @@
 <body>
   <% include partials/_header %>
 
-<h3>Create TinyURL</h3>
+  <h3>Create TinyURL</h3>
 
-<form action="/urls" method="POST">
-  <div><label for="URL">Enter a URL:</label>
-    <input class="form-control col-6" id="newURL" type="text" name="longURL">
-  </div>
-  <br>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
+  <form action="/urls" method="POST">
+    <div><label for="URL">Enter a URL:</label>
+      <input class="form-control col-6" id="newURL" type="text" name="longURL" value='http://'>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
 </body>
 
 </html>
