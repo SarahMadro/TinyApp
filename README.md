@@ -19,4 +19,4 @@ Run the development web server using the node express_server.js command.
 
 !["registration page"](https://github.com/sjay3000/TinyApp/blob/master/Screen%20Shot%202019-02-15%20at%208.33.41%20PM.png)
 !["logout page"](https://github.com/sjay3000/TinyApp/blob/master/Screen%20Shot%202019-02-15%20at%208.33.13%20PM.png)
->>>>>>> 2171c2d715e28676116ff8dda1295adee19cef9e
+
